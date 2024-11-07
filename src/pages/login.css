@@ -1,0 +1,88 @@
+/* Fondo gris claro */
+body {
+  background-image: url(../images/mueble.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Evita el scroll */
+  height: 100vh; /* Asegura que el body ocupe toda la pantalla */
+  margin: 0;
+}
+
+/* Contenedor central del formulario */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinea hacia la parte superior */
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 60px 20px 0 20px; /* Ajusta el padding superior para elevar el formulario */
+}
+
+/* Caja de login */
+.login-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #16c79a; /* Color superior */
+}
+
+/* Título */
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Etiquetas de entrada */
+.login-label {
+  font-size: 14px;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Estilo de los campos de entrada */
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+/* Estilo del botón */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #16c79a, #7bf6d7);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+ 
+/* Efecto hover en el botón */
+.login-button:hover {
+  background: linear-gradient(90deg, #7bf6d7, #16c79a);
+}
+
+/* Efecto focus en los campos de entrada */
+.login-input:focus {
+  border-color: #6b46c1;
+  outline: none;
+}

@@ -1,0 +1,112 @@
+/* Fondo con imagen */
+body {
+  background-image: url(../images/mueble.jpeg); /* Ruta de tu imagen */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Asegura que el body ocupe toda la pantalla */
+}
+
+/* Contenedor principal con separación adicional */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alínea el formulario hacia la parte superior */
+  margin-bottom: 100px; /* Espacio entre el formulario y el footer */
+}
+
+/* Caja del formulario con fondo blanco y bordes redondeados */
+.register-box {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #16c79a;
+  box-sizing: border-box;
+}
+
+/* Título principal */
+.register-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Estilos de las etiquetas */
+.register-label {
+  font-size: 13px;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Estilos de los campos de entrada */
+.register-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+/* Estilos del botón de registro */
+.register-button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #16c79a, #7bf6d7);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Efecto hover en el botón */
+.register-button:hover {
+  background: linear-gradient(90deg, #7bf6d7, #16c79a);
+}
+
+/* Estilo de los campos de entrada cuando tienen el foco */
+.register-input:focus {
+  border-color: #6b46c1;
+  outline: none;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+  .register-box {
+    padding: 20px;
+  }
+
+  .register-title {
+    font-size: 18px;
+  }
+
+  .register-input {
+    padding: 8px;
+  }
+
+  .register-button {
+    padding: 8px;
+  }
+}

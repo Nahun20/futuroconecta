@@ -1,0 +1,55 @@
+/* Contenedor de Carreras */
+.carreras {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+/* Estilo para cada carrera */
+.carrera {
+  width: 250px;
+  text-align: center;
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrera img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carrera p {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Enlace dentro de la carrera */
+.carrera a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Efectos al pasar el mouse sobre cada carrera */
+.carrera:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carrera:hover img {
+  opacity: 0.8;
+}
+
+.carrera a:hover p {
+  color: #2979FF;
+  font-weight: bold;
+}

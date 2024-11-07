@@ -1,0 +1,59 @@
+const handleRegister = async (e) => {
+    e.preventDefault();
+
+    // Validaciones
+    if (password.length < 6) {
+        setError('La contraseña debe tener al menos 6 caracteres.');
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        setError('Las contraseñas no coinciden.');
+        return;
+    }
+
+    try {
+        // Registro de usuario
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log('Usuario registrado con UID:', user.uid);  // Verifica si el usuario se ha creado
+
+        // Verifica si es el primer administrador
+        const adminDocRef = doc(db, 'admins', 'admin-id');
+        const adminDoc = await getDoc(adminDocRef);
+        if (!adminDoc.exists()) {
+            // Si es el primer administrador, asigna el rol 'admin' y lo guarda
+            console.log('Este es el primer administrador.');
+            await setDoc(adminDocRef, {
+                email: user.email,
+                username: username,
+                rol: 'admin',
+            });
+            setSuccessMessage('¡Primer administrador registrado correctamente!');
+        } else {
+            // Si ya hay un administrador, no permitas registrar otro
+            if (role === 'admin') {
+                setError('Solo los administradores existentes pueden registrar nuevos administradores.');
+                return;
+            }
+
+            // Guardar como usuario normal si no es el primer administrador
+            const userRef = doc(db, 'users', user.uid);
+            await setDoc(userRef, {
+                email: user.email,
+                username: username,
+                rol: 'user',
+            });
+            setSuccessMessage('¡Usuario registrado correctamente!');
+        }
+
+        // Redirigir después de un breve retraso
+        setTimeout(() => {
+            navigate('/'); // Redirige a la página principal
+        }, 2000);
+
+    } catch (err) {
+        console.error('Error de Firebase:', err);
+        setError(err.code === 'auth/email-already-in-use' ? 'Este correo electrónico ya está en uso. Intenta con otro.' : err.message);
+    }
+};
