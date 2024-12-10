@@ -1,0 +1,47 @@
+name: React CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Configura el repositorio
+      - name: futuroconecta
+        uses: actions/futuroconecta
+
+
+      # 2. Configura la versión de Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17' # Usa la versión que requiera tu proyecto
+
+      # 3. Instala dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Ejecuta pruebas
+      - name: Run Tests
+        run: npm test -- --watchAll=false
+
+      # 5. Construye la aplicación
+      - name: Build Project
+        run: npm run build
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: futuroconecta
+        uses: actions/futuroconecta
+
+      # (Opcional) Agrega tu script de despliegue aquí
+      # Por ejemplo, para desplegar en Netlify o Vercel, usa sus respectivas integraciones.
